@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日常参考 · hth 页面说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #f9e2cb 0%, #f3d3b0 65%, #ecc197 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      line-height: 1.6;
+      color: #2c241c;
+    }
+
+    .card {
+      max-width: 860px;
+      width: 100%;
+      background: #fffffffa;
+      border-radius: 40px 40px 32px 32px;
+      box-shadow: 0 20px 36px -12px rgba(120, 70, 40, 0.3), 0 4px 8px rgba(0,0,0,0.02);
+      padding: 2.8rem 3rem;
+      backdrop-filter: blur(2px);
+      transition: all 0.15s ease;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.2rem;
+      }
+      .card {
+        padding: 2rem 1.5rem;
+        border-radius: 28px;
+      }
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 530;
+      letter-spacing: -0.02em;
+      color: #3f2d1b;
+      margin-bottom: 0.25rem;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #7e6855;
+      margin-bottom: 2.2rem;
+      border-left: 4px solid #ddb68a;
+      padding-left: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+    }
+
+    .summary-block {
+      background: #faf3ea;
+      padding: 1.5rem 1.8rem;
+      border-radius: 28px;
+      margin-bottom: 2.4rem;
+      border: 1px solid #ebdccf;
+    }
+
+    .summary-block p {
+      color: #352a20;
+      font-size: 1.02rem;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2rem;
+      margin: 2.2rem 0 2rem;
+    }
+
+    .feature-item {
+      flex: 1 1 200px;
+      min-width: 150px;
+    }
+
+    .feature-item h3 {
+      font-size: 1.1rem;
+      font-weight: 540;
+      color: #563f2b;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .feature-item h3::before {
+      content: "•";
+      color: #c2926a;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .feature-item p {
+      font-size: 0.94rem;
+      color: #4b3a2b;
+      margin-left: 1.2rem;
+    }
+
+    .usage-scenario {
+      background: #f2ebe2;
+      padding: 1.6rem 1.8rem;
+      border-radius: 28px;
+      margin: 1.8rem 0 2.2rem;
+    }
+
+    .usage-scenario h2 {
+      font-size: 1.3rem;
+      font-weight: 520;
+      color: #3f2e1c;
+      margin-bottom: 0.8rem;
+    }
+
+    .usage-scenario ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .usage-scenario li {
+      padding: 0.4rem 0;
+      border-bottom: 1px dashed #dac8b7;
+      font-size: 0.98rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+
+    .usage-scenario li:last-child {
+      border-bottom: none;
+    }
+
+    .usage-scenario li::before {
+      content: "▹";
+      color: #b68b67;
+      font-size: 1.1rem;
+    }
+
+    .faq-note {
+      margin: 2rem 0 1.8rem;
+      padding: 1.2rem 1.6rem;
+      background: #f7ede2;
+      border-radius: 24px;
+      border-left: 4px solid #cba27f;
+    }
+
+    .faq-note details {
+      margin: 0.4rem 0;
+    }
+
+    .faq-note summary {
+      font-weight: 500;
+      color: #3f2b19;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      font-size: 0.97rem;
+    }
+
+    .faq-note .answer {
+      padding: 0.4rem 0 0.2rem 1.2rem;
+      color: #473a2d;
+      font-size: 0.93rem;
+    }
+
+    .link-sentence {
+      font-size: 1.02rem;
+      background: #f5ede4;
+      padding: 1rem 1.6rem;
+      border-radius: 48px;
+      display: inline-block;
+      margin: 0.8rem 0 0.2rem;
+    }
+
+    a {
+      color: #7b5c3d;
+      text-decoration: none;
+      font-weight: 520;
+      background: #e9daca;
+      padding: 0.1rem 0.6rem;
+      border-radius: 40px;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+      border: 1px solid #d6bca6;
+      font-size: 0.96rem;
+    }
+
+    a:hover {
+      background: #d6bca6;
+      color: #2f2013;
+      border-color: #b6906f;
+    }
+
+    .footer-note {
+      margin-top: 2.4rem;
+      font-size: 0.85rem;
+      color: #756255;
+      border-top: 1px solid #e6d6c6;
+      padding-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+
+    .tag {
+      background: #ece0d3;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      color: #4f3d2c;
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+  <h1>日常对照 · 查询参考</h1>
+  <div class="subtitle">围绕「hth」整理的摘要、特点与使用场景</div>
+
+  <div class="summary-block">
+    <p><strong>hth</strong> 是一个概念上侧重信息对照与延伸阅读的索引式页面。它不强调单一功能，而是提供一种从日常查询出发、逐步扩展边界的浏览方式。结构简洁，但能容纳从快速确认到深度跳转的不同需求。</p>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature-item">
+      <h3>摘要式陈列</h3>
+      <p>关键条目、属性或分类以扁平方式呈现，减少层级，便于横向比较。</p>
+    </div>
+    <div class="feature-item">
+      <h3>对照友好</h3>
+      <p>同类信息并列排布，适合临时对比或逐条核实，也适合作为延伸阅读的起点。</p>
+    </div>
+    <div class="feature-item">
+      <h3>轻量入口</h3>
+      <p>没有过多干扰模块，页面保持克制，专注内容本身，降低认知负担。</p>
+    </div>
+  </div>
+
+  <div class="usage-scenario">
+    <h2>📋 常见使用建议</h2>
+    <ul>
+      <li>快速定位某个条目或值，与手头资料做一致性核对</li>
+      <li>在多个相关项之间切换，比较表述差异或补充细节</li>
+      <li>作为延伸阅读的中转站——从当前页面跳转至更具体的说明或外部参考</li>
+      <li>日常浏览时保持标签页，需要时直接扫读，不必重新搜索</li>
+    </ul>
+  </div>
+
+  <div class="faq-note">
+    <details>
+      <summary>❓ 这个页面主要面向哪些人？</summary>
+      <div class="answer">适合需要快速查阅或对比信息的使用者，尤其是日常需要多次比对同一类数据的场景。也适合作为个人知识整理的轻度聚合页。</div>
+    </details>
+    <details>
+      <summary>🔍 内容会频繁更新吗？</summary>
+      <div class="answer">更新节奏取决于所参照的领域变化，但页面本身保持稳定结构，内容调整会以补充或修正为主，不会大范围重构。</div>
+    </details>
+    <details>
+      <summary>⚖️ 使用上有什么需要注意？</summary>
+      <div class="answer">页面提供的是经过整理的信息摘要，建议结合原始来源或官方说明交叉验证。所有链接和跳转都基于可用性测试，但外部内容请自行判断。</div>
+    </details>
+  </div>
+
+  <div class="link-sentence">
+    如果你对 <a href="https://space-m-hth.com">hth</a> 的结构或内容有进一步兴趣，可以直接通过该链接查看完整索引。
+  </div>
+
+  <div class="footer-note">
+    <span>保持清晰 · 不夸张</span>
+    <span class="tag">#日常参考</span>
+  </div>
+</div>
+</body>
+</html>
